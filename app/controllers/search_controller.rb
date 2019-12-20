@@ -1,5 +1,8 @@
 class SearchController < ApplicationController
   def index
+    render locals: {
+      map_info: MapFacade.new(params[:location]),
+    }
 
     # route_response = Faraday.get('https://maps.googleapis.com/maps/api/directions/json') do |req|
     #   req.params['key'] = ENV['google_maps_key']
